@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>HTML dynamic table using JavaScript</title>
+	<!-- SOURCE:  http://www.mysamplecode.com/2012/04/generate-html-table-using-javascript.html -->
+    <script type="text/javascript">
+	function addRow()
+	{
+		console.log("Adding row initiated ...");
+		var myName = document.getElementById("name");
+		var age = document.getElementById("age");
+		var color = document.getElementById("color");
+		var table = document.getElementById("myTableData");
+		console.log("1 ...");
+		var rowCount = table.rows.length;
+		console.log("2 ...");
+		var row = table.insertRow(rowCount);
+		console.log("3 ...");
+		row.insertCell(0).innerHTML= '&nbsp;&nbsp;' + myName.value + '&nbsp;&nbsp;';
+		row.insertCell(1).innerHTML= '&nbsp;&nbsp;' + age.value + '&nbsp;&nbsp;';
+		row.insertCell(2).innerHTML= '&nbsp;&nbsp;' + color.value + '&nbsp;&nbsp;';
+		document.getElementById("myForm").reset();
+		console.log("Adding row finished.");
+	}
+
+	function load()
+	{
+		console.log("Page load finished");
+	}
+	</script>
+</head>
+<body onload="load()">
+<form id="myForm">
+<table>
+    <tr>
+        <td>Name:</td>
+        <td><input type="text" id="name" required></td>
+    </tr>
+    <tr>
+        <td>Age:</td>
+        <td><input type="text" id="age">
+    </tr>
+	<tr>
+        <td>Favorite Color:</td>
+        <td><input type="text" id="color">
+        <input type="button" id="add" value="Add" onclick="Javascript:addRow()"></td>
+    </tr>
+</table>
+</form>
+<br/>
+<br/>
+
+
+<b>Previously added data ...</b><br/>
+<table id="myTableData"  border="0" cellpadding="2">
+    <tr>
+        <td>&nbsp;&nbsp;<b>Name</b>&nbsp;&nbsp;</td>
+        <td>&nbsp;&nbsp;<b>Age</b>&nbsp;&nbsp;</td>
+		<td>&nbsp;&nbsp;<b>Color</b>&nbsp;&nbsp;</td>
+    </tr>
+</table>
+<br/>
+
+</body>
+</html>

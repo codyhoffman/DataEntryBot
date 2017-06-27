@@ -1,0 +1,53 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Enter data from Excel</title>
+<style>
+#drop{
+	border:2px dashed #bbb;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+	border-radius:5px;
+	padding:25px;
+	text-align:center;
+	font:20pt bold,"Vollkorn";color:#bbb
+}
+#b64data{
+	width:100%;
+}
+a { text-decoration: none }
+</style>
+</head>
+<body>
+<pre>
+Output Format: <select name="format" onchange="setfmt()">
+<option value="json" selected> JSON</option>
+<option value="csv"> CSV</option>
+<option value="form"> FORMULAE</option>
+<option value="html"> HTML</option>
+</select><br />
+<div id="drop">Drop Excel file here to enter data</div>
+<input type="file" name="xlfile" id="xlf" /> ... or click here to select a file
+
+<textarea id="b64data">... or paste a base64-encoding here</textarea>
+<input type="button" id="dotext" value="Click here to process the base64 text" onclick="b64it();"/><br />
+<font color="gray">
+<b>Advanced Options:</b>
+Use Web Workers: (when available) <input type="checkbox" name="useworker" checked>
+Use Transferrables: (when available) <input type="checkbox" name="xferable" checked>
+Use readAsBinaryString: (when available) <input type="checkbox" name="userabs" checked>
+</font>
+</pre>
+<pre id="out"></pre>
+<div id="htmlout"></div>
+<br />
+<script src="jquery-3.1.1.min.js"></script>
+<script src="shim.js"></script>
+<script src="xlsx.full.min.js"></script>
+<script src="popup.js"></script>
+
+</body>
+</html>
+

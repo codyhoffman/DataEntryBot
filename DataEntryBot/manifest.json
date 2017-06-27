@@ -1,0 +1,28 @@
+{
+  "name": "DataEntryBot",
+  "description": "Popup browser action offering selection of an Excel file for data entry into the current page",
+  "version": "1.0",
+  "manifest_version": 2,
+
+  "permissions": [
+    "activeTab"
+  ],
+
+  "content_scripts": [
+    {
+      "matches": [
+        "http://*/*",
+        "https://*/*"
+      ],
+      "js": [ "jquery-3.1.1.min.js" ]
+    }
+  ],
+
+  "browser_action": 
+    {
+      "default_title": "Enter page data from Excel.",
+      "default_icon": "icon.png",
+      "default_popup": "popup.html"
+    }
+
+  }
